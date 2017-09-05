@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B750C9D2-3AB1-4DEF-9172-61690F3E66EA}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MQUESTSYS</RootNamespace>
+    <AssemblyName>MQUESTSYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MPL">
+      <HintPath>..\MQUESTSYS.Util\DLL\MPL.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\ABCAPOS\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.2.0.0\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Master\CustomerController.cs" />
+    <Compile Include="Controllers\PSIGenericTransactionController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Master\UserProfileController.cs" />
+    <Compile Include="Controllers\PSIGenericController.cs" />
+    <Compile Include="Controllers\Master\RoleController.cs" />
+    <Compile Include="Controllers\Master\UserController.cs" />
+    <Compile Include="Controllers\PSIMasterDetailController.cs" />
+    <Compile Include="Controllers\ReportViewerController.cs" />
+    <Compile Include="Controllers\Setting\CompanySettingController.cs" />
+    <Compile Include="Controllers\Setting\PrefixSettingController.cs" />
+    <Compile Include="GenericFilter.ascx.cs">
+      <DependentUpon>GenericFilter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenericFilter.ascx.designer.cs">
+      <DependentUpon>GenericFilter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GenericFilterField.ascx.cs">
+      <DependentUpon>GenericFilterField.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenericFilterField.ascx.designer.cs">
+      <DependentUpon>GenericFilterField.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AccountingHelper.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
+    <Compile Include="Helpers\ModuleHelper.cs" />
+    <Compile Include="Helpers\RateHelper.cs" />
+    <Compile Include="Helpers\MembershipHelper.cs" />
+    <Compile Include="ImportData.aspx.cs">
+      <DependentUpon>ImportData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImportData.aspx.designer.cs">
+      <DependentUpon>ImportData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="PrintOut\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintOut\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileCommon.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\ReportHelper.cs" />
+    <Compile Include="Report\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEngines\ListViewEngine.cs" />
+    <Compile Include="ViewEngines\MasterViewEngine.cs" />
+    <Compile Include="ViewEngines\SettingViewEngine.cs" />
+    <Compile Include="ViewEngines\TransactionViewEngine.cs" />
+    <Compile Include="WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\UI\css\Icons\add.png" />
+    <Content Include="Content\UI\css\Icons\approve.png" />
+    <Content Include="Content\UI\css\Icons\backToList.png" />
+    <Content Include="Content\UI\css\Icons\calendar.png" />
+    <Content Include="Content\UI\css\Icons\cancel.png" />
+    <Content Include="Content\UI\css\Icons\createAnother.png" />
+    <Content Include="Content\UI\css\Icons\createDocument.png" />
+    <Content Include="Content\UI\css\Icons\delete.png" />
+    <Content Include="Content\UI\css\Icons\details.png" />
+    <Content Include="Content\UI\css\Icons\edit.png" />
+    <Content Include="Content\UI\css\Icons\FilterBackground.png" />
+    <Content Include="Content\UI\css\Icons\find.png" />
+    <Content Include="Content\UI\css\Icons\print.png" />
+    <Content Include="Content\UI\css\Icons\reopen.png" />
+    <Content Include="Content\UI\css\Icons\save.png" />
+    <Content Include="Content\UI\css\Icons\submit.png" />
+    <Content Include="Content\JQueryNumberFormatter\js\jquery.numberformatter-1.2.3.jsmin.js" />
+    <Content Include="Content\JQueryNumeric\js\jquery.numeric.js" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\JQueryUI\css\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\JQueryUI\css\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\JQueryUI\js\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Content\JQueryValidate\js\jquery.validate.min.js" />
+    <Content Include="Content\JQuery\jquery-1.11.3.min.js" />
+    <Content Include="Content\JsExtension\js\jsExtension.js" />
+    <Content Include="Content\JsHashtable\js\jshashtable-2.1.js" />
+    <Content Include="Content\MenuCSS\js\IndicatorContainer.js" />
+    <Content Include="Content\Site\Image\Logo.png" />
+    <Content Include="Content\Site\css\PSI-Site.css" />
+    <Content Include="Content\Site\js\NumberFormatting.js" />
+    <Content Include="Content\Style.css" />
+    <Content Include="Content\UI\css\UI.css" />
+    <Content Include="Content\UI\js\UI.js" />
+    <Content Include="GenericFilter.ascx" />
+    <Content Include="GenericFilterField.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="ImportData.aspx" />
+    <Content Include="Scripts\amcharts\amcharts.js" />
+    <Content Include="Scripts\amcharts\exporting\amexport.js" />
+    <Content Include="Scripts\amcharts\exporting\canvg.js" />
+    <Content Include="Scripts\amcharts\exporting\filesaver.js" />
+    <Content Include="Scripts\amcharts\exporting\jspdf.js" />
+    <Content Include="Scripts\amcharts\exporting\jspdf.plugin.addimage.js" />
+    <Content Include="Scripts\amcharts\exporting\rgbcolor.js" />
+    <Content Include="Scripts\amcharts\funnel.js" />
+    <Content Include="Scripts\amcharts\gauge.js" />
+    <Content Include="Scripts\amcharts\images\dragIcon.gif" />
+    <Content Include="Scripts\amcharts\images\dragIconBlack.gif" />
+    <Content Include="Scripts\amcharts\images\dragIconH.gif" />
+    <Content Include="Scripts\amcharts\images\dragIconHBlack.gif" />
+    <Content Include="Scripts\amcharts\images\export.png" />
+    <Content Include="Scripts\amcharts\images\exportWhite.png" />
+    <Content Include="Scripts\amcharts\images\lens.png" />
+    <Content Include="Scripts\amcharts\images\lensWhite.png" />
+    <Content Include="Scripts\amcharts\lang\az.js" />
+    <Content Include="Scripts\amcharts\lang\bg.js" />
+    <Content Include="Scripts\amcharts\lang\de.js" />
+    <Content Include="Scripts\amcharts\lang\es.js" />
+    <Content Include="Scripts\amcharts\lang\fi.js" />
+    <Content Include="Scripts\amcharts\lang\fo.js" />
+    <Content Include="Scripts\amcharts\lang\fr.js" />
+    <Content Include="Scripts\amcharts\lang\hr.js" />
+    <Content Include="Scripts\amcharts\lang\hu.js" />
+    <Content Include="Scripts\amcharts\lang\id.js" />
+    <Content Include="Scripts\amcharts\lang\is.js" />
+    <Content Include="Scripts\amcharts\lang\it.js" />
+    <Content Include="Scripts\amcharts\lang\lt.js" />
+    <Content Include="Scripts\amcharts\lang\lv.js" />
+    <Content Include="Scripts\amcharts\lang\mk.js" />
+    <Content Include="Scripts\amcharts\lang\mn.js" />
+    <Content Include="Scripts\amcharts\lang\mt.js" />
+    <Content Include="Scripts\amcharts\lang\nl.js" />
+    <Content Include="Scripts\amcharts\lang\no.js" />
+    <Content Include="Scripts\amcharts\lang\pl.js" />
+    <Content Include="Scripts\amcharts\lang\pt.js" />
+    <Content Include="Scripts\amcharts\lang\ro.js" />
+    <Content Include="Scripts\amcharts\lang\ru.js" />
+    <Content Include="Scripts\amcharts\lang\rw.js" />
+    <Content Include="Scripts\amcharts\lang\sk.js" />
+    <Content Include="Scripts\amcharts\lang\so.js" />
+    <Content Include="Scripts\amcharts\lang\th.js" />
+    <Content Include="Scripts\amcharts\lang\tr.js" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern1.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern10.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern11.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern12.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern13.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern14.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern15.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern16.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern17.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern18.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern19.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern2.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern20.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern21.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern3.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern4.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern5.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern6.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern7.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern8.png" />
+    <Content Include="Scripts\amcharts\patterns\black\pattern9.png" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern1.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern1r.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern2.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern3.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern4.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern5.jpg" />
+    <Content Include="Scripts\amcharts\patterns\chalk\pattern6.jpg" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern1.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern10.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern11.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern12.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern13.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern14.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern15.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern16.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern17.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern18.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern19.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern2.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern20.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern21.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern3.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern4.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern5.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern6.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern7.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern8.png" />
+    <Content Include="Scripts\amcharts\patterns\white\pattern9.png" />
+    <Content Include="Scripts\amcharts\pie.js" />
+    <Content Include="Scripts\amcharts\radar.js" />
+    <Content Include="Scripts\amcharts\serial.js" />
+    <Content Include="Scripts\amcharts\style.css" />
+    <Content Include="Scripts\amcharts\themes\black.js" />
+    <Content Include="Scripts\amcharts\themes\chalk.js" />
+    <Content Include="Scripts\amcharts\themes\dark.js" />
+    <Content Include="Scripts\amcharts\themes\light.js" />
+    <Content Include="Scripts\amcharts\themes\patterns.js" />
+    <Content Include="Scripts\amcharts\xy.js" />
+    <Content Include="Scripts\DayPilot\calendar_g.css" />
+    <Content Include="Scripts\DayPilot\calendar_green.css" />
+    <Content Include="Scripts\DayPilot\calendar_traditional.css" />
+    <Content Include="Scripts\DayPilot\calendar_transparent.css" />
+    <Content Include="Scripts\DayPilot\calendar_white.css" />
+    <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
+    <Content Include="Scripts\DayPilot\Media\layout.css" />
+    <Content Include="Scripts\DayPilot\Media\layout\header-in.png" />
+    <Content Include="Scripts\DayPilot\Media\layout\header.png" />
+    <Content Include="Scripts\DayPilot\Media\layout\li.png" />
+    <Content Include="Scripts\DayPilot\Media\layout\main.png" />
+    <Content Include="Scripts\DayPilot\Media\layout\shadow.png" />
+    <Content Include="Scripts\DayPilot\min\daypilot-calendar.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-common.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-datepicker.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-modal.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-month.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-navigator.min.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-calendar.src.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-common.src.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-datepicker.src.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-modal.src.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-month.src.js" />
+    <Content Include="Scripts\DayPilot\src\daypilot-navigator.src.js" />
+    <Content Include="Scripts\index.js" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <None Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.5.2.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\css\redmond\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\js\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom\js\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.numberformatter-1.2.3.jsmin.js" />
+    <Content Include="Scripts\jquery.numeric.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsExtension.js" />
+    <Content Include="Scripts\jshashtable-2.1.js" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\menucss\IndicatorContainer.js" />
+    <Content Include="Scripts\miceBooking.js" />
+    <Content Include="Scripts\miceTechnicalities.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\Notification\formNotification.js" />
+    <Content Include="Scripts\Notification\notification.js" />
+    <Content Include="Scripts\noty\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\noty\jquery.noty.js" />
+    <Content Include="Scripts\noty\layouts\bottom.js" />
+    <Content Include="Scripts\noty\layouts\bottomCenter.js" />
+    <Content Include="Scripts\noty\layouts\bottomLeft.js" />
+    <Content Include="Scripts\noty\layouts\bottomRight.js" />
+    <Content Include="Scripts\noty\layouts\center.js" />
+    <Content Include="Scripts\noty\layouts\centerLeft.js" />
+    <Content Include="Scripts\noty\layouts\centerRight.js" />
+    <Content Include="Scripts\noty\layouts\inline.js" />
+    <Content Include="Scripts\noty\layouts\top.js" />
+    <Content Include="Scripts\noty\layouts\topCenter.js" />
+    <Content Include="Scripts\noty\layouts\topLeft.js" />
+    <Content Include="Scripts\noty\layouts\topRight.js" />
+    <Content Include="Scripts\noty\packaged\jquery.noty.packaged.js" />
+    <Content Include="Scripts\noty\packaged\jquery.noty.packaged.min.js" />
+    <Content Include="Scripts\noty\promise.js" />
+    <Content Include="Scripts\noty\themes\default.js" />
+    <Content Include="Scripts\psi\psiMVCFix.js" />
+    <Content Include="Scripts\UI.js" />
+    <Content Include="Styles\Images\calendar.png" />
+    <Content Include="Styles\Images\collapse_blue.jpg" />
+    <Content Include="Styles\Images\duplicate.png" />
+    <Content Include="Styles\Images\expand_blue.jpg" />
+    <Content Include="Styles\Images\filterBackground.png" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Uploads\CompanySetting\logo.png" />
+    <Content Include="Uploads\Logo\logo.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WebService.asmx" />
+    <Content Include="Views\Master\UserProfile\Create.cshtml" />
+    <Content Include="Views\Master\UserProfile\Detail.cshtml" />
+    <Content Include="Views\Master\UserProfile\Index.cshtml" />
+    <Content Include="Views\Master\UserProfile\Password.cshtml" />
+    <Content Include="Views\Master\UserProfile\Update.cshtml" />
+    <Content Include="Views\Shared\Master\UserProfile\Form.cshtml" />
+    <Content Include="Views\Shared\Master\UserProfile\IndexGrid.cshtml" />
+    <Content Include="Views\Master\Customer\Create.cshtml" />
+    <Content Include="Views\Master\Customer\Detail.cshtml" />
+    <Content Include="Views\Master\Customer\Index.cshtml" />
+    <Content Include="Views\Master\Customer\Update.cshtml" />
+    <Content Include="Views\Shared\Master\Customer\Form.cshtml" />
+    <Content Include="Views\Shared\Master\Customer\IndexGrid.cshtml" />
+    <Content Include="Views\List\UncreatedInvoice\Index.cshtml" />
+    <Content Include="Views\List\UncreatedInvoicePayment\Index.cshtml" />
+    <Content Include="Views\Shared\Master\User\Form.cshtml" />
+    <Content Include="Views\Shared\Master\User\IndexGrid.cshtml" />
+    <Content Include="Views\List\UncreatedVocherExpense\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_Start\" />
+    <Folder Include="Controllers\List\" />
+    <Folder Include="Controllers\Transaction\" />
+    <Folder Include="License\" />
+    <Folder Include="PrintOut\Transaction\" />
+    <Folder Include="Report\Transaction\" />
+    <Folder Include="Scripts\Transaction\" />
+    <Folder Include="TempReport\" />
+    <Folder Include="Uploads\Attachment\" />
+    <Folder Include="Uploads\Signature\" />
+    <Folder Include="Views\Shared\Transaction\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MQUESTSYS.BF\MQUESTSYS.BF.csproj">
+      <Project>{710F5AA8-AF98-47EB-BADD-2F4D16FF2732}</Project>
+      <Name>MQUESTSYS.BF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.DA\MQUESTSYS.DA.csproj">
+      <Project>{36740731-8C87-42E4-A623-EA450A7DB818}</Project>
+      <Name>MQUESTSYS.DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.EDM\MQUESTSYS.EDM.csproj">
+      <Project>{D8263B1A-A382-4A90-A9B3-85743194E807}</Project>
+      <Name>MQUESTSYS.EDM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.Models\MQUESTSYS.Models.csproj">
+      <Project>{D9FD2576-30D7-4347-A469-68E50335C957}</Project>
+      <Name>MQUESTSYS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.ReportEDS\MQUESTSYS.ReportEDS.csproj">
+      <Project>{7EADA648-3B96-4473-9239-945CD0ABAEFB}</Project>
+      <Name>MQUESTSYS.ReportEDS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.Util\MQUESTSYS.Util.csproj">
+      <Project>{5CFC4A51-316A-418E-B7BF-7D9A2DEA59E7}</Project>
+      <Name>MQUESTSYS.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Master\Role\Create.cshtml" />
+    <Content Include="Views\Master\Role\CreateRole.cshtml" />
+    <Content Include="Views\Master\Role\Detail.cshtml" />
+    <Content Include="Views\Master\Role\Index.cshtml" />
+    <Content Include="Views\Master\Role\Update.cshtml" />
+    <Content Include="Views\Master\Role\UpdateRole.cshtml" />
+    <Content Include="Views\Shared\Master\Role\Form.cshtml" />
+    <Content Include="Views\Shared\Master\Role\IndexGrid.cshtml" />
+    <Content Include="Views\Master\User\Create.cshtml" />
+    <Content Include="Views\Master\User\Detail.cshtml" />
+    <Content Include="Views\Master\User\Index.cshtml" />
+    <Content Include="Views\Master\User\Logon.cshtml" />
+    <Content Include="Views\Master\User\Update.cshtml" />
+    <Content Include="Views\Master\Account\Create.cshtml" />
+    <Content Include="Views\Master\Account\Detail.cshtml" />
+    <Content Include="Views\Master\Account\Index.cshtml" />
+    <Content Include="Views\Master\Account\Update.cshtml" />
+    <Content Include="Views\Setting\CompanySetting\Detail.cshtml" />
+    <Content Include="Views\Setting\CompanySetting\Update.cshtml" />
+    <Content Include="Views\Setting\PrefixSetting\Detail.cshtml" />
+    <Content Include="Views\Setting\PrefixSetting\Update.cshtml" />
+    <Content Include="Views\Shared\Setting\CompanySetting\Form.cshtml" />
+    <Content Include="Views\Shared\Setting\PrefixSetting\Form.cshtml" />
+    <Content Include="Report\Site.Master" />
+    <Content Include="Views\ReportViewer\Index.cshtml" />
+    <Content Include="Views\ReportViewer\PopUp.cshtml" />
+    <Content Include="PrintOut\Site.Master" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Styles\vssver2.scc" />
+    <Content Include="Styles\Web.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8020</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

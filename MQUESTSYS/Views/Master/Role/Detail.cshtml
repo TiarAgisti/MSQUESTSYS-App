@@ -1,0 +1,141 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Helpers;
+@using MQUESTSYS.Models.Master;
+@using MQUESTSYS.Util;
+@model RoleModel
+@{
+    ViewBag.Title = "Permission";
+}
+<h2>
+    Role Module</h2>
+<table class="basic">
+    <tr>
+        <td style="width: 150px">
+            Role Name <span class="warning">*</span>
+        </td>
+        <td class="separatorColumn">
+            :
+        </td>
+        <td>
+            @Model.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Module List
+        </td>
+        <td>
+            :
+        </td>
+        <td>
+            <table class="basic">
+                @foreach (var obj in ModuleHelper.ModuleList())
+                {
+                    var chkViewID = "chkView" + obj.Key;
+                    var chkEditID = "chkEdit" + obj.Key;
+                    var chkCreateID = "chkCreate" + obj.Key;
+                    var chkApproveID = "chkApprove" + obj.Key;
+                    
+                    var viewPermission = from i in Model.Details
+                                         where i.ModuleID == obj.Key && i.Action == SystemConstants.str_permission_View
+                                         select i;
+
+                    var editPermission = from i in Model.Details
+                                         where i.ModuleID == obj.Key && i.Action == SystemConstants.str_permission_Edit
+                                         select i;
+
+                    var createPermission = from i in Model.Details
+                                           where i.ModuleID == obj.Key && i.Action == SystemConstants.str_permission_Create
+                                           select i;
+                    var approvePermission = from i in Model.Details
+                                            where i.ModuleID == obj.Key && i.Action == SystemConstants.str_permission_Approve
+                                            select i;
+                    
+                    var chkViewChecked = "";
+                    var chkEditChecked = "";
+                    var chkCreateChecked = "";
+                    var chkApproveChecked = "";
+                    
+                    if (viewPermission.FirstOrDefault() != null)
+                    {
+                        chkViewChecked = "checked=\"checked\"";
+                    }
+
+                    if (editPermission.FirstOrDefault() != null)
+                    {
+                        chkEditChecked = "checked=\"checked\"";
+                    }
+
+                    if (createPermission.FirstOrDefault() != null)
+                    {
+                        chkCreateChecked = "checked=\"checked\"";
+                    }
+
+                    if (approvePermission.FirstOrDefault() != null)
+                    {
+                        chkApproveChecked = "checked=\"checked\"";
+                    }
+                    
+                    <tr>
+                        <td style="width: 250px">
+                            @obj.Value
+                        </td>
+                        <td style="width: 150px">
+                            @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting")
+                            {
+                                <input disabled="disabled" type="checkbox" id="@chkViewID" name="@chkViewID" value="true" @chkViewChecked />@Html.Raw("View")
+                            }
+                        </td>
+                        <td style="width: 150px">
+                            @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting" && obj.Key != "ReportProject")
+                            {
+                                <input disabled="disabled" type="checkbox" id="@chkCreateID" name="@chkCreateID" value="true" @chkCreateChecked />@Html.Raw("Create")
+                            }
+                        </td>
+                        <td style="width: 150px">
+                             @if (obj.Key != "ReportProject")
+                             {
+                                  <input disabled="disabled" type="checkbox" id="@chkEditID" name="@chkEditID" value="true" @chkEditChecked />@Html.Raw("Edit")
+                             }
+                        </td>
+                        <td style="width: 150px">
+                            @if (obj.Key == "Project" || obj.Key == "Invoice" || obj.Key == "InvoicePayment" || obj.Key == "Vocher" || obj.Key == "VocherExpense")
+                            {
+                                <input disabled="disabled" type="checkbox" id="@chkApproveID" name="@chkApproveID" value="true" @chkApproveChecked />@Html.Raw("Approve")
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 150px">
+            Status
+        </td>
+        <td class="separatorColumn">
+            :
+        </td>
+        <td>
+            @Model.IsActiveDescription
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <table class="basic">
+                <tr>
+                    <td>
+                        @if (Convert.ToBoolean(ViewBag.AllowEdit))
+                        {
+                            <a href="@Url.Content("~/Role/Update?Key=" + Model.ID)" class="button">Edit</a>
+@*<a href="@Url.Content("~/Role/Delete?Key=" + Model.ID)" onclick="return confirm('Apakah Anda yakin ingin menghapus peran ini?');" class="button">
+                                Hapus</a>*@
+                            <a href="@Url.Content("~/Role/Create")" class="button">Create New</a>
+                        }
+                        <a href="@Url.Content("~/Role/Index")" class="button">Back To List</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

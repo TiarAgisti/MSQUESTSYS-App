@@ -1,0 +1,89 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@using MQUESTSYS.Util;
+@model CustomerModel
+@{
+    var mode = (UIMode)ViewBag.Mode;
+
+    var yesNoRadio = new List<RadioOption>()
+    {
+        new RadioOption(){ Value = true,Text = "Active", ReadOnly = mode == UIMode.Detail},
+        new RadioOption(){ Value = false,Text = "Inactive", ReadOnly = mode == UIMode.Detail},
+    };
+
+    var formFields = new List<IFormField>()
+    {
+        Html.HiddenFieldFieldObjFor(p=>p.ID,""),
+       
+        
+        Html.LabelFieldObjFor(p=>p.Code,"Kode Customer", delegate(FormField f){
+                f.Style = "width:300px";
+        }),
+            
+        Html.TextBoxFieldObjFor(p=>p.Name,"Nama", delegate(FormField f){
+            f.Style = "width:400px";
+        }),
+            
+        Html.TextAreaFieldObjFor(p=>p.Address,"Alamat", delegate(FormField f){
+            f.Style = "width:400px";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.Phone,"Phone", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.Fax,"Fax", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        //Html.EditorFor(p=>p.Email,"Email"),
+        Html.TextBoxFieldObjFor(p=>p.Email,"E-Mail", delegate(FormField f){
+            f.Style = "width:250px";
+            f.Attributes = " onblur=\"checkEmail()\" ";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.City,"Kota", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.Provinsi,"Provinsi", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.Zip,"Kode POS", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+           
+            
+        Html.RadioButtonFieldObjFor(p=>p.IsActive,"Status", yesNoRadio),
+        
+    };
+    var form = new Form();
+    form.Fields = formFields;
+}
+
+@Html.MasterForm(form, Model, mode, "Customer", "ID", delegate(MasterFormHelper<CustomerModel> helper)
+{
+    if (mode == UIMode.Detail)
+    {
+        if (!Convert.ToBoolean(ViewBag.AllowCreate))
+        {
+            helper.CreateAnotherButton.Visible = false;
+        }
+
+        if (!Convert.ToBoolean(ViewBag.AllowEdit))
+        {
+            helper.EditButton.Visible = false;
+        }
+
+        helper.DeleteButton.Visible = false;
+    }
+})
+<script>
+    function checkEmail() {
+
+        var email = document.getElementById('txtEmail');
+        console.log(email);
+        var filter = /^([a-zA-Z0-9_\.\-])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email.value)) {
+            $("#txtEmail").val('');
+            alert('Email Not Valid');
+            return false;
+        }
+    }
+</script>

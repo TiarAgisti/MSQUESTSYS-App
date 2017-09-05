@@ -1,0 +1,169 @@
+﻿@using MQUESTSYS.Helpers;
+@{
+    var menu = MenuHelper.GetMenuList();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @*<link href="@Url.Content("~/Scripts/amcharts/style.css")" rel="stylesheet" type="text/css">*@
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/Menu.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/UI/css/UI.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/JQueryUI/css/jquery-ui-1.8.16.custom.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/Site/css/PSI-Site.css")" rel="stylesheet" type="text/css"/>
+    
+    @if (MembershipHelper.GetRoleID() != 0)
+    {
+        <script src="@Url.Content("~/Scripts/noty/jquery-1.7.2.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.numeric.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/UI.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jsExtension.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jshashtable-2.1.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.numberformatter-1.2.3.jsmin.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/menucss/IndicatorContainer.js")" type="text/javascript"></script>
+        @* for Noty *@
+        <script src="@Url.Content("~/Scripts/noty/packaged/jquery.noty.packaged.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/noty/layouts/topRight.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Notification/notification.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Notification/formNotification.js")" type="text/javascript"></script>
+    }                                                                                                                                                                                                                                                                                       
+    @RenderSection("JavaScript", required: false)
+    <script>
+        var detailsValidatorMember = [];
+    </script>
+</head>
+<body>
+    <input type="hidden" id="hdnNotificationShown" value="" />
+    <input type="hidden" id="hdnSuccessNotification" value="@ViewBag.SuccessNotification" />
+    <input type="hidden" id="hdnErrorNotification" value="@ViewBag.ErrorNotification" />
+    <div class="mainDiv" style="position: fixed; z-index: 999">
+        <div style="width: 100%;">
+            <table style="width: 90%;" class="basic">
+                <tr>
+                    <td>
+                        <div class="psi-site-logo">
+                            <img src="@Url.Content("~/Content/Site/Image/Logo.png")" />
+                        </div>
+                    </td>
+                    <td class="rightAlign" style="vertical-align: top">
+                        <span style="color: Black">
+                            @if (Membership.GetUser() != null)
+                            {
+                                @Html.Raw("<b style='color:Black'>" + MembershipHelper.GetDisplayName() + "</b>&nbsp; | &nbsp;")<a href="@Url.Content("~/User/LogOut")" style="text-decoration:none; color:Black">Log
+                                    Out</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Content("~/User/LogOn")" style="text-decoration:none; color:Black">Log
+                                    On</a>
+                            }
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id='cssmenu' class="page">
+            <ul>
+                <li class='active'><a href='@Url.Content("~/Home")'><span>Home</span></a></li>
+                @if (Membership.GetUser() != null)
+                {
+                    if (menu.Contains("User") || menu.Contains("UserProfile") || menu.Contains("Role")
+                        || menu.Contains("Staff"))
+                    {
+                    <li class='has-sub'><a href='#'><span>Master</span></a>
+                        <ul>
+                            @if (menu.Contains("User"))
+                            {
+                                <li><a href='@Url.Content("~/User")'><span>User</span></a></li>
+                            } 
+                            @if (menu.Contains("UserProfile"))
+                            {
+                                <li><a href='@Url.Content("~/UserProfile")'><span>User Profile</span></a></li>
+                            }
+                            @if (menu.Contains("Role"))
+                            {
+                                <li><a href='@Url.Content("~/Role")'><span>Permission</span></a></li>
+                            }
+                            @if (menu.Contains("Customer"))
+                            {
+                                <li><a href='@Url.Content("~/Customer")'><span>Customer</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    }
+                    if (menu.Contains("CompanySetting") || menu.Contains("PrefixSetting"))
+                    {
+                    <li class='has-sub'><a href='#'><span>Setting</span></a>
+                        <ul>
+                            @if (menu.Contains("CompanySetting"))
+                            {
+                                <li><a href='@Url.Content("~/CompanySetting/Detail")'><span>Company Info</span></a></li>
+                            }
+                            @if (menu.Contains("PrefixSetting"))
+                            {
+                                <li><a href='@Url.Content("~/PrefixSetting/Detail")'><span>Code Setting</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    }
+                    if (menu.Contains("Project") || menu.Contains("Invoice") || menu.Contains("InvoicePayment") || menu.Contains("Vocher") || menu.Contains("VocherExpense"))
+                    {
+                    <li class='has-sub'><a href='#'><span>Transaction</span></a>
+                        <ul>
+                            @if (menu.Contains("Project"))
+                            {
+                                <li><a href='@Url.Content("~/Project")'><span>Proyek</span></a></li>
+                            }
+                            @if (menu.Contains("Invoice"))
+                            {
+                                <li><a href='@Url.Content("~/Invoice")'><span>Invoice</span></a></li>
+                            }
+                            @if (menu.Contains("InvoicePayment"))
+                            {
+                                <li><a href='@Url.Content("~/InvoicePayment")'><span>Invoice Payment</span></a></li>
+                            }
+                            @if (menu.Contains("Vocher"))
+                            {
+                                <li><a href='@Url.Content("~/Vocher")'><span>Vocher</span></a></li>
+                            }
+                            @if (menu.Contains("VocherExpense"))
+                            {
+                                <li><a href='@Url.Content("~/VocherExpense")'><span>Vocher Expense</span></a></li>
+                            }
+                        </ul>
+                    </li>
+                    }
+                    if (menu.Contains("ReportProject"))
+                    {
+                        <li class='has-sub'><a href='#'><span>Laporan</span></a>
+                            <ul>
+                                @if (menu.Contains("ReportProject"))
+                                {
+                                    <li><a href='@Url.Content("~/ReportViewer/Index?type=Project")'><span>Laporan Proyek</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="page" style="overflow: auto; padding-top: 120px">
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+    @if (MembershipHelper.GetRoleID() != 0)
+    {
+        <input type="hidden" id="btnCreateShadow" />
+        <script src="/Scripts/psi/psiMVCFix.js" type="text/javascript"></script>
+    }
+</body>
+</html>

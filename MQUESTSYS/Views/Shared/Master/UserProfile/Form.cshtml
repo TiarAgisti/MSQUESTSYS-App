@@ -1,0 +1,25 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@using MQUESTSYS.Util;
+@model UserProfileModel
+@{
+    var mode = (UIMode)ViewBag.Mode;
+    var formFields = new List<IFormField>()
+    {
+        Html.HiddenFieldFieldObjFor(e=>e.ID,""),
+        Html.HiddenFieldFieldObjFor(e=>e.UserName, ""),
+        Html.HiddenFieldFieldObjFor(e=>e.Code, ""),
+        Html.TextBoxFieldObjFor(e=>e.DisplayName, "Display Name"),
+        Html.CustomRowFormFieldObj("Password"),
+    };
+
+    var form = new Form();
+    form.Fields = formFields;
+
+}
+@Html.MasterForm(form, Model,  mode, "UserProfile", "ID", delegate(MasterFormHelper<UserProfileModel> helper)
+{
+    helper.EditButton.Visible = mode == UIMode.Detail && Convert.ToBoolean(ViewBag.AllowEdit);
+    helper.CreateAnotherButton.Visible = false;
+    helper.DeleteButton.Visible = false;
+})

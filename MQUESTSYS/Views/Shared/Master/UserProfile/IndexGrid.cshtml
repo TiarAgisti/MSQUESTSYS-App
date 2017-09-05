@@ -1,0 +1,18 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@model List<UserProfileModel>
+@{
+    var gridColumns = new List<GridColumn>()
+    {
+        Html.LabelColumn("UserName", "User Name"),
+        Html.LabelColumn("DisplayName", "Display Name"),
+    };
+    var grid = new Grid();
+    grid.Columns = gridColumns;
+}
+@Html.IndexGrid(grid, Model, "UserProfile", "ID", "Name", null, delegate(object obj, UIMode mode)
+    {
+        return false;
+    }, delegate(IndexGridHelper igh) {
+        igh.AddNewButton.Visible = false;
+    })

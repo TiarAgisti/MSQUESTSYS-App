@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{710F5AA8-AF98-47EB-BADD-2F4D16FF2732}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MQUESTSYS.BF</RootNamespace>
+    <AssemblyName>MQUESTSYS.BF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MPL">
+      <HintPath>..\MQUESTSYS.Util\DLL\MPL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Master\CustomerBFC.cs" />
+    <Compile Include="PSIGenericTransactionBFC.cs" />
+    <Compile Include="Master\CompanySettingBFC.cs" />
+    <Compile Include="Master\PrefixSettingBFC.cs" />
+    <Compile Include="Master\UserProfileBFC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Master\RoleBFC.cs" />
+    <Compile Include="PSIGenericBFC.cs" />
+    <Compile Include="PSIMasterDetailBFC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MQUESTSYS.DA\MQUESTSYS.DA.csproj">
+      <Project>{36740731-8C87-42E4-A623-EA450A7DB818}</Project>
+      <Name>MQUESTSYS.DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.EDM\MQUESTSYS.EDM.csproj">
+      <Project>{D8263B1A-A382-4A90-A9B3-85743194E807}</Project>
+      <Name>MQUESTSYS.EDM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.Models\MQUESTSYS.Models.csproj">
+      <Project>{D9FD2576-30D7-4347-A469-68E50335C957}</Project>
+      <Name>MQUESTSYS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.ReportEDS\MQUESTSYS.ReportEDS.csproj">
+      <Project>{7EADA648-3B96-4473-9239-945CD0ABAEFB}</Project>
+      <Name>MQUESTSYS.ReportEDS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQUESTSYS.Util\MQUESTSYS.Util.csproj">
+      <Project>{5CFC4A51-316A-418E-B7BF-7D9A2DEA59E7}</Project>
+      <Name>MQUESTSYS.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Report\" />
+    <Folder Include="Transaction\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

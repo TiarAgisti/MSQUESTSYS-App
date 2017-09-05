@@ -1,0 +1,171 @@
+﻿#cssmenu, #cssmenu ul {
+    background-color: #0072c6 !important;
+}
+div.maindiv {
+    background-color: darkgray;
+}
+div.psi-site-logo {
+    left: 80px;
+    padding: 5px 0px 0px 0px;
+    position: relative;
+}
+div.psi-site-logo img {
+    max-width: 160px;
+    max-height: 160px;
+}
+div#cssmenu li.has-sub a:hover, div#cssmenu li.active a:hover{
+    color:gold !important;
+}
+div#cssmenu li.has-sub a:link{
+    /*color:white !important;*/
+}
+div#cssmenu li.has-sub a:hover {
+    background-color: #0072c6;
+}
+/*PSI*/
+a.psi-link{
+    color: black !important;
+    text-decoration: none !important;
+}
+a.psi-link:hover {
+    color: #0072c6 !important;
+    text-decoration: none !important;
+}
+.psi-footer {
+    color: white;
+    text-align: center;
+    padding-bottom: 25px;
+    font-size: 14px;
+}
+
+.psi-button {
+    color: black !important;
+    text-decoration: none !important;
+    border: solid 1px;
+    border-radius: 2px;
+}
+
+.psi-chart {
+    width: 400px;
+    height: 300px;
+}
+/*CSS FRAMEWORK*/
+.PSI-Container {
+    vertical-align: top;
+    text-align: center;
+    margin-top: 5px;
+}
+.PSI-Panel-Border-NoTop {
+    border: solid 2px;
+    border-top: none;
+    border-color: lightgray;
+}
+.PSI-Panel-Header {
+    font-size: 18px;
+    text-align: center;
+}
+.PSI-Panel-Content {
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+.PSI-Padding-NoPadding {
+    padding: 0px;
+}
+.PSI-Text-Center {
+    text-align: center;
+}
+.PSI-Text-Left {
+    text-align: left;
+}
+.PSI-Text-Right {
+    text-align: right;
+}
+.PSI-TC-1 {
+    color: black;
+}
+.PSI-TC-2 {
+    color: white;
+}
+.PSI-TC-3 {
+    color: #0072c6;
+}
+.PSI-BGC-1 {
+    background-color: #0072c6;
+}
+.PSI-BGC-2 {
+    background-color: #837e7c;
+}
+/*WIDTH FRAMEWORK*/
+[class*="PSI-Div-Width-"] {
+    width: 100%;
+}
+.PSI-Chart-Controller {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
+@media all and (min-width: 961px) {
+    .PSI-Div-Width-1 {
+        display:inline-block;
+        width: 8%;
+    }
+    .PSI-Div-Width-2 {
+        display:inline-block;
+        width: 16%;
+    }
+    .PSI-Div-Width-3 {
+        display:inline-block;
+        width: 24%;
+    }
+    .PSI-Div-Width-4 {
+        display:inline-block;
+        width: 32%;
+    }
+    .PSI-Div-Width-5 {
+        display:inline-block;
+        width: 40%;
+    }
+    .PSI-Div-Width-6 {
+        display:inline-block;
+        width: 48%;
+    }
+    .PSI-Div-Width-7 {
+        display:inline-block;
+        width: 56%;
+    }
+    .PSI-Div-Width-8 {
+        display:inline-block;
+        width: 64%;
+    }
+    .PSI-Div-Width-9 {
+        display:inline-block;
+        width: 72%;
+    }
+    .PSI-Div-Width-10 {
+        display:inline-block;
+        width: 80%;
+    }
+    .PSI-Div-Width-11 {
+        display:inline-block;
+        width: 88%;
+    }
+    .PSI-Div-Width-12 {
+        display:inline-block;
+        width: 96%;
+    }
+    .PSI-Panel-Border-Right {
+        border-right: solid 1px lightgrey;
+    }
+    .PSI-Panel-Border-Left {
+        border-left: solid 1px lightgrey;
+    }
+}
+@media all and (min-width:1281px) {
+    .PSI-Chart-Controller {
+        width: 72%;
+        display: inline-block;
+        overflow: hidden;
+    }
+}
+/* FRAMEWORK REFERENCE http://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile */

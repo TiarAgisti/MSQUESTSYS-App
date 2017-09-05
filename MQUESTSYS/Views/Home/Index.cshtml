@@ -1,0 +1,328 @@
+﻿@using MQUESTSYS.Helpers
+@using MQUESTSYS.Models
+@{
+    ViewBag.Title = "Home Page";
+
+    //var notifications = ViewBag.NotificationList as List<HomeNotificationModel>;
+
+    //var customerGroupList = ViewBag.CustomerGroupList as List<CustomerGroupModel>;
+
+    var menu = MenuHelper.GetMenuList();
+}
+@*<style type="text/css">
+    .blackTextOdd
+    {
+        color:white;
+        font-weight:700;
+        font-size:1.5em;
+        background-color:#837e7c;
+    }
+    .bigTextOdd
+    {
+        color: white;
+        font-size:1.5em;
+    }
+    .blackTextEven
+    {
+        color:#696969;
+        font-weight:700;
+        font-size:1.5em;
+        background-color:#dbdbdb;
+    }
+    .bigTextEven
+    {
+        color: #696969;
+        font-size:1.5em;
+    }
+    table td {
+        border: 1px solid #e8eef4;
+        padding: 0px;
+    }
+</style>*@
+@*<input type="hidden" id="hdnChart1" value="@ViewBag.MonthlyPO" />
+<input type="hidden" id="hdnChart2" value="@ViewBag.MonthlySO" />*@
+@*<script type="text/javascript">
+    var chart;
+    
+    var chartData = JSON.parse($('#hdnChart1').val());
+    var chartData2 = JSON.parse($('#hdnChart2').val());
+    
+    AmCharts.ready(function () {
+        // SERIAL CHART
+        chart = new AmCharts.AmSerialChart();
+        chart.dataProvider = chartData;
+        chart.categoryField = "Month";
+        // the following two lines makes chart 3D
+        chart.depth3D = 20;
+        chart.angle = 30;
+        
+        // AXES
+        // category
+        var categoryAxis = chart.categoryAxis;
+        categoryAxis.labelRotation = 90;
+        categoryAxis.dashLength = 4;
+        categoryAxis.gridPosition = "start";
+        
+        // value
+        var valueAxis = new AmCharts.ValueAxis();
+        valueAxis.title = "Total";
+        valueAxis.dashLength = 5;
+        chart.addValueAxis(valueAxis);
+
+        // GRAPH
+        var graph = new AmCharts.AmGraph();
+        graph.valueField = "Amount";
+        graph.colorField = "color";
+        graph.balloonText = "<span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+        graph.type = "column";
+        graph.lineAlpha = 0;
+        graph.fillAlphas = 1;
+        chart.addGraph(graph);
+
+        // CURSOR
+        var chartCursor = new AmCharts.ChartCursor();
+        chartCursor.cursorAlpha = 0;
+        chartCursor.zoomable = false;
+        chartCursor.categoryBalloonEnabled = false;
+        chart.addChartCursor(chartCursor);
+        
+        // WRITE
+        chart.write("chartdiv1");
+
+        // SERIAL CHART
+        chart2 = new AmCharts.AmSerialChart();
+        chart2.dataProvider = chartData2;
+        chart2.categoryField = "Month";
+        // the following two lines makes chart 3D
+        chart2.depth3D = 20;
+        chart2.angle = 30;
+
+        // AXES
+        // category
+        var categoryAxis2 = chart2.categoryAxis;
+        categoryAxis2.labelRotation = 90;
+        categoryAxis2.dashLength = 5;
+        categoryAxis2.gridPosition = "start";
+        
+        // value
+        var valueAxis2 = new AmCharts.ValueAxis();
+        valueAxis2.title = "Total";
+        valueAxis2.dashLength = 5;
+        chart2.addValueAxis(valueAxis2);
+
+        // GRAPH
+        var graph2 = new AmCharts.AmGraph();
+        graph2.valueField = "Amount";
+        graph2.colorField = "color";
+        graph2.balloonText = "<span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>";
+        graph2.type = "column";
+        graph2.lineAlpha = 0;
+        graph2.fillAlphas = 1;
+        chart2.addGraph(graph2);
+
+        // CURSOR
+        var chartCursor2 = new AmCharts.ChartCursor();
+        chartCursor2.cursorAlpha = 0;
+        chartCursor2.zoomable = false;
+        chartCursor2.categoryBalloonEnabled = false;
+        chart2.addChartCursor(chartCursor2);
+
+        chart2.creditsPosition = "top-right";
+
+        // WRITE
+        chart2.write("chartdiv2");
+
+    });
+
+</script>  *@ 
+
+@*@{
+    var floatLeft = "";
+
+    if (menu.Contains("Dashboard"))
+    {
+        floatLeft = "float:left;";
+    }
+}*@
+@*<table class="basic" style="width: 64%;border:2px solid #dbdbdb;margin:2px;@floatLeft">
+    <tr  class="blackTextOdd" style="height:20px;">
+            <td colspan="4">
+                <span style="padding-left:5px;color:white;font-size:1em;font-weight:500;">Notifications</span>
+            </td>
+        </tr>
+    <tr>
+            <td colspan="4">
+                &nbsp;
+            </td>
+        </tr>
+    @foreach (var customerGroup in customerGroupList)
+    {
+        
+        var notificationList = (from i in notifications
+                                where i.CustomerGroupID == customerGroup.ID
+                                select i).ToList();
+
+        foreach (var notification in notificationList)
+        {            
+        <tr>
+            <td style="padding-left: 5px;width: 120px">
+                <b>@notification.Module</b>
+            </td>
+            <td class="separatorColumn">
+                :
+            </td>
+            <td>
+                <table class="basic" style="width: 100%">
+                    @foreach (var detail in notification.Details)
+                    {
+                        <tr>
+                            <td>
+                                <span class="plainLink"><a href=@detail.Url>@detail.Text</a></span>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+            <td style="width: 20px">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                &nbsp;
+            </td>
+        </tr>
+        }
+        <tr>
+            <td colspan="4">
+                &nbsp;
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4">
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            &nbsp;
+        </td>
+    </tr>
+</table>*@
+@*@if (menu.Contains("Dashboard"))
+{
+<table style="width:34%;margin-top:2px;">
+    <tr >
+        <td style="padding-left:5px;" class="blackTextOdd">Purchase Order<br />
+            <span class="bigTextOdd">@ViewBag.PurchaseCount</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left:5px;" class="blackTextEven">Quotation<br />
+            <span class="bigTextEven">@ViewBag.QuotationCount</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left:5px;" class="blackTextOdd">Sales Order<br />
+            <span class="bigTextOdd">@ViewBag.SalesOrderCount</span>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left:5px;" class="blackTextEven">Payment Sales<br />
+            <span class="bigTextEven">@ViewBag.PaymentCount</span>
+        </td>
+    </tr>
+    <tr>
+        <td  style="padding-left:5px;" class="blackTextOdd">Outstanding Sales Order<br />
+            <span class="bigTextOdd">@ViewBag.OutstandingSalesCount</span>
+        </td>
+    </tr>
+</table>
+<br />
+<table id="tblDashboard" style="width: 49%; border:2px solid #dbdbdb;float:left; margin:2px;padding:0px;">
+    <tr class="blackTextOdd">
+        <td>
+            <span style="padding-left: 5px;color:white;font-size:1em;font-weight:500;">Purchase Order</span>
+        </td>
+    </tr>
+    <tr style="border-radius: 25px;border-right:3px solid #dbdbdb;">
+        <td align="center" style="border-radius: 25px;border-right:2px solid #dbdbdb;height:300px;">
+            <div id="chartdiv1" style="text-align:center;width:400px; height:300px;"></div>
+        </td>
+        
+    </tr>
+
+</table>
+<table id="tblDashboard2" style="width: 49%; border:2px solid #dbdbdb; margin:2px;padding:0px; ">
+    <tr class="blackTextOdd">
+        <td>
+            <span style="padding-left: 5px;color:white;font-size:1em;font-weight:500;">Sales Order</span>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" style="border-radius: 25px;border-right:2px solid #dbdbdb;height:300px;margin:2px;">
+            <div id="chartdiv2" style="text-align:center;width:400px; height:300px;"></div>
+        </td>
+    </tr>
+</table>
+<br />
+<table class="tblTopSales displayGrid" style="width: 49%;float:left;border:2px solid #dbdbdb;margin:2px;">
+    <thead>
+     <tr class="blackTextOdd">
+        <td colspan="4" style="text-align:left;">
+            <span style="padding-left: 5px;color:white;font-size:1em;font-weight:500;">Top 10 Sales - @ViewBag.Year</span>
+        </td>
+    </tr>
+    <tr>
+        <td>No.</td>
+        <td>Sales Order</td>
+        <td>Customer</td>
+        <td>Total (Rp)</td>
+    </tr> 
+    </thead> 
+   <tbody>
+       @foreach (SalesOrderModel so in ViewBag.SalesTopList)
+       {
+  <tr>
+    <td style="text-align:center;">@so.No</td>
+    <td style="text-align:center;">@so.Code</td>
+    <td>@so.CustomerName</td>
+    <td style="text-align:right;">@so.GrandTotal.ToString("N0")</td>
+</tr>           
+       }
+    </tbody> 
+    
+
+</table>
+
+<table class="tblTopCustomer displayGrid" style="width:49%; border:2px solid #dbdbdb; margin:2px;padding:0px;">
+    <thead>
+    <tr class="blackTextOdd">
+        <td colspan="3" style="text-align:left;">
+            <span style="padding-left: 5px;color:white;font-size:1em;font-weight:500;">Top 10 Customers - @ViewBag.Year</span>
+        </td>
+    </tr>
+    
+   <tr>
+        <td >No.</td>
+        <td>Customer</td>
+        <td>Total (Rp)</td>
+    </tr>   
+    </thead>
+    <tbody>
+          @foreach (InvoiceModel inv in ViewBag.InvoiceCustomerList)
+          {
+<tr>
+    <td style="text-align:center;">@inv.ID</td>
+    <td>@inv.CustomerName</td>
+    <td style="text-align:right;">@inv.GrandTotal.ToString("N0")</td>
+</tr>           
+                                
+          }
+
+    </tbody>
+
+</table>
+<br />
+<br />
+}*@

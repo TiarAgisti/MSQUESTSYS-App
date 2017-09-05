@@ -1,0 +1,62 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@model List<CustomerModel>
+@{
+    var dataCount = (int)ViewBag.DataCount;
+    var pageSize = (int)ViewBag.PageSize;
+    var startIndex = (int)ViewBag.StartIndex;
+    var selectedPage = startIndex / pageSize + 1;
+    var pageAmount = (dataCount / 20);
+
+    if (dataCount % 20 != 0)
+    {
+        pageAmount += 1;
+    }
+
+    var statement = string.Format("Page: {0} of {1}", selectedPage, pageAmount);
+
+    var gridColumns = new List<GridColumn>()
+    {
+        Html.LabelColumn("Code","Customer Code"),
+        Html.LabelColumn("Name","Name","",delegate(GridColumn col){
+            col.Style = "width:400px";
+        }),
+        Html.LabelColumn("Address","Address","",delegate(GridColumn col){
+            col.Style = "width:400px";
+        }),
+        Html.LabelColumn("Phone","Phone","",delegate(GridColumn col){
+            col.Style = "width:100px";
+        }),
+        Html.LabelColumn("Email", "E-Mail"),
+        Html.LabelColumn("IsActiveDescription","Status", "",delegate(GridColumn col){
+            col.SortField = "IsActive";
+            col.Style = "width:20px";
+        })
+    };
+
+    var filterList = new List<GenericFilterField>()
+    {
+        Html.GenericFilterTextBoxField("Customer Code","Code"),
+        Html.GenericFilterTextBoxField("Name","Name"),
+    };
+
+    var grid = new Grid();
+    grid.Columns = gridColumns;
+}
+@Html.GenericFilter(filterList)
+@Html.IndexGrid(grid, Model, "Customer", "ID", "Code", null, delegate(object obj, UIMode mode)
+{
+    return false;
+}, delegate(IndexGridHelper helper)
+{
+    if (Convert.ToBoolean(ViewBag.AllowCreate))
+    {
+        helper.AddNewButton.Visible = true;
+    }
+    else
+    {
+        helper.AddNewButton.Visible = false;
+    }
+})
+<br />
+@statement
