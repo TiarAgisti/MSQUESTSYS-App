@@ -17,6 +17,7 @@ namespace MQUESTSYS.Helpers
 
             /*Master*/
             moduleList["Customer"] = "Customer";
+            moduleList["LogSendEmail"] = "Send Email";
             moduleList["User"] = "User";
             moduleList["Role"] = "Permission";
             moduleList["UserProfile"] = "User Profile";
@@ -24,16 +25,6 @@ namespace MQUESTSYS.Helpers
             /*Setting*/
             moduleList["PrefixSetting"] = "Pengaturan Prefix";
             moduleList["CompanySetting"] = "Company Info";  
-
-            /*Transaction*/
-            moduleList["Project"] = "Project";
-            moduleList["Invoice"] = "Invoice";
-            moduleList["InvoicePayment"] = "Invoice Payment";
-            moduleList["Vocher"] = "Vocher";
-            moduleList["VocherExpense"] = "Vocher Expense";
-
-            /*Reporting*/
-            moduleList["ReportProject"] = "Laporan Proyek";
 
             return moduleList;
         }

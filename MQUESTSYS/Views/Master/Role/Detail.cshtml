@@ -87,21 +87,15 @@
                             }
                         </td>
                         <td style="width: 150px">
-                            @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting" && obj.Key != "ReportProject")
+                            @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting")
                             {
                                 <input disabled="disabled" type="checkbox" id="@chkCreateID" name="@chkCreateID" value="true" @chkCreateChecked />@Html.Raw("Create")
                             }
                         </td>
                         <td style="width: 150px">
-                             @if (obj.Key != "ReportProject")
-                             {
-                                  <input disabled="disabled" type="checkbox" id="@chkEditID" name="@chkEditID" value="true" @chkEditChecked />@Html.Raw("Edit")
-                             }
-                        </td>
-                        <td style="width: 150px">
-                            @if (obj.Key == "Project" || obj.Key == "Invoice" || obj.Key == "InvoicePayment" || obj.Key == "Vocher" || obj.Key == "VocherExpense")
+                            @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting")
                             {
-                                <input disabled="disabled" type="checkbox" id="@chkApproveID" name="@chkApproveID" value="true" @chkApproveChecked />@Html.Raw("Approve")
+                                <input disabled="disabled" type="checkbox" id="@chkEditID" name="@chkEditID" value="true" @chkEditChecked />@Html.Raw("Edit")
                             }
                         </td>
                     </tr>

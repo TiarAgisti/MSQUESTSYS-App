@@ -189,6 +189,22 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="LogSendEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="SenderName" Type="varchar" MaxLength="50" />
+          <Property Name="ToName" Type="varchar(max)" />
+          <Property Name="CCName" Type="varchar(max)" />
+          <Property Name="MessageEmail" Type="varchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="PrefixSetting">
           <Key>
             <PropertyRef Name="ID" />
@@ -299,6 +315,24 @@ warning 6002: The table/view 'mquestsys.dbo.v_Customer' does not have a primary 
           <Property Name="IsActive" Type="bit" />
           <Property Name="AutoCompleteDisplay" Type="varchar" MaxLength="303" />
           <Property Name="AutoCompleteSearchable" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'mquestsys.dbo.v_LogSendEmail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_LogSendEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="SenderName" Type="varchar" MaxLength="50" />
+          <Property Name="ToName" Type="varchar(max)" />
+          <Property Name="CCName" Type="varchar(max)" />
+          <Property Name="MessageEmail" Type="varchar(max)" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'mquestsys.dbo.v_UserProfile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -752,6 +786,7 @@ warning 6002: The table/view 'mquestsys.dbo.vw_aspnet_WebPartState_User' does no
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanySetting" EntityType="Self.CompanySetting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogSendEmail" EntityType="Self.LogSendEmail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PrefixSetting" EntityType="Self.PrefixSetting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleDetail" EntityType="Self.RoleDetail" Schema="dbo" store:Type="Tables" />
@@ -783,6 +818,21 @@ FROM [dbo].[v_AspnetProfileGetProperties] AS [v_AspnetProfileGetProperties]</Def
 [v_Customer].[AutoCompleteDisplay] AS [AutoCompleteDisplay], 
 [v_Customer].[AutoCompleteSearchable] AS [AutoCompleteSearchable]
 FROM [dbo].[v_Customer] AS [v_Customer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_LogSendEmail" EntityType="Self.v_LogSendEmail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[v_LogSendEmail].[ID] AS [ID], 
+[v_LogSendEmail].[Code] AS [Code], 
+[v_LogSendEmail].[SenderName] AS [SenderName], 
+[v_LogSendEmail].[ToName] AS [ToName], 
+[v_LogSendEmail].[CCName] AS [CCName], 
+[v_LogSendEmail].[MessageEmail] AS [MessageEmail], 
+[v_LogSendEmail].[Status] AS [Status], 
+[v_LogSendEmail].[CreatedBy] AS [CreatedBy], 
+[v_LogSendEmail].[ModifiedBy] AS [ModifiedBy], 
+[v_LogSendEmail].[CreatedDate] AS [CreatedDate], 
+[v_LogSendEmail].[ModifiedDate] AS [ModifiedDate]
+FROM [dbo].[v_LogSendEmail] AS [v_LogSendEmail]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_UserProfile" EntityType="Self.v_UserProfile" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1018,12 +1068,14 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="MQUESTSYSModel.aspnet_WebEvent_Events" />
           <EntitySet Name="CompanySetting" EntityType="MQUESTSYSModel.CompanySetting" />
           <EntitySet Name="Customer" EntityType="MQUESTSYSModel.Customer" />
+          <EntitySet Name="LogSendEmail" EntityType="MQUESTSYSModel.LogSendEmail" />
           <EntitySet Name="PrefixSetting" EntityType="MQUESTSYSModel.PrefixSetting" />
           <EntitySet Name="Role" EntityType="MQUESTSYSModel.Role" />
           <EntitySet Name="RoleDetail" EntityType="MQUESTSYSModel.RoleDetail" />
           <EntitySet Name="UserProfile" EntityType="MQUESTSYSModel.UserProfile" />
           <EntitySet Name="v_AspnetProfileGetProperties" EntityType="MQUESTSYSModel.v_AspnetProfileGetProperties" />
           <EntitySet Name="v_Customer" EntityType="MQUESTSYSModel.v_Customer" />
+          <EntitySet Name="v_LogSendEmail" EntityType="MQUESTSYSModel.v_LogSendEmail" />
           <EntitySet Name="v_UserProfile" EntityType="MQUESTSYSModel.v_UserProfile" />
           <EntitySet Name="vw_aspnet_Applications" EntityType="MQUESTSYSModel.vw_aspnet_Applications" />
           <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="MQUESTSYSModel.vw_aspnet_MembershipUsers" />
@@ -1374,6 +1426,22 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="LogSendEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CCName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MessageEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="PrefixSetting">
           <Key>
             <PropertyRef Name="ID" />
@@ -1480,6 +1548,22 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="AutoCompleteDisplay" Type="String" MaxLength="303" FixedLength="false" Unicode="false" />
           <Property Name="AutoCompleteSearchable" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_LogSendEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CCName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MessageEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="v_UserProfile">
           <Key>
@@ -2100,6 +2184,23 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LogSendEmail">
+            <EntityTypeMapping TypeName="MQUESTSYSModel.LogSendEmail">
+              <MappingFragment StoreEntitySet="LogSendEmail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MessageEmail" ColumnName="MessageEmail" />
+                <ScalarProperty Name="CCName" ColumnName="CCName" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PrefixSetting">
             <EntityTypeMapping TypeName="MQUESTSYSModel.PrefixSetting">
               <MappingFragment StoreEntitySet="PrefixSetting">
@@ -2206,6 +2307,23 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_LogSendEmail">
+            <EntityTypeMapping TypeName="MQUESTSYSModel.v_LogSendEmail">
+              <MappingFragment StoreEntitySet="v_LogSendEmail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MessageEmail" ColumnName="MessageEmail" />
+                <ScalarProperty Name="CCName" ColumnName="CCName" />
+                <ScalarProperty Name="ToName" ColumnName="ToName" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -2366,34 +2484,36 @@ FROM [dbo].[vw_aspnet_WebPartState_User] AS [vw_aspnet_WebPartState_User]</Defin
     <Diagrams>
       <Diagram Name="MQUESTSYSEDMC" ZoomLevel="40">
         <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="10.5" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Membership" Width="1.5" PointX="8.25" PointY="14.625" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16.5" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="17" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="8.25" PointY="22.125" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Profile" Width="1.5" PointX="5.25" PointY="21.125" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Roles" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Membership" Width="1.5" PointX="5.25" PointY="10.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Paths" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="25.5" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="21.125" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Profile" Width="1.5" PointX="5.25" PointY="17.5" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Roles" Width="1.5" PointX="3" PointY="13" />
         <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Users" Width="1.5" PointX="3" PointY="20.125" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_UsersInRoles" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_Users" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_UsersInRoles" Width="1.5" PointX="8.25" PointY="15.75" />
         <EntityTypeShape EntityType="MQUESTSYSModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.CompanySetting" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.Customer" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.PrefixSetting" Width="1.5" PointX="7.75" PointY="5.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.Role" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.CompanySetting" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.Customer" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.LogSendEmail" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.PrefixSetting" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.Role" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="MQUESTSYSModel.RoleDetail" Width="1.5" PointX="9.75" PointY="4.75" />
         <EntityTypeShape EntityType="MQUESTSYSModel.UserProfile" Width="1.5" PointX="9.75" PointY="7.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.v_AspnetProfileGetProperties" Width="1.5" PointX="2.75" PointY="10.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.v_Customer" Width="1.5" PointX="11.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.v_UserProfile" Width="1.5" PointX="11.75" PointY="6.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Applications" Width="1.5" PointX="4.75" PointY="10.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="10.75" PointY="12.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Profiles" Width="1.5" PointX="12.75" PointY="12.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Roles" Width="1.5" PointX="13.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Users" Width="1.5" PointX="13.75" PointY="3.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="13.75" PointY="7.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="14.75" PointY="10.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="14.75" PointY="13.75" />
-        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.v_AspnetProfileGetProperties" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.v_Customer" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.v_LogSendEmail" Width="1.5" PointX="11.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.v_UserProfile" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Applications" Width="1.5" PointX="7.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Profiles" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Roles" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_Users" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MQUESTSYSModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="15.75" PointY="9.75" />
         <AssociationConnector Association="MQUESTSYSModel.FK__aspnet_Me__Appli__01142BA1" />
         <AssociationConnector Association="MQUESTSYSModel.FK__aspnet_Me__Appli__690797E6" />
         <AssociationConnector Association="MQUESTSYSModel.FK__aspnet_Pa__Appli__02FC7413" />

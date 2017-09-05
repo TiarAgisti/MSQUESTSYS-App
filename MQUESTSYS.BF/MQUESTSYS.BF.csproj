@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Master\CustomerBFC.cs" />
+    <Compile Include="Master\LogSendEmailBFC.cs" />
     <Compile Include="PSIGenericTransactionBFC.cs" />
     <Compile Include="Master\CompanySettingBFC.cs" />
     <Compile Include="Master\PrefixSettingBFC.cs" />

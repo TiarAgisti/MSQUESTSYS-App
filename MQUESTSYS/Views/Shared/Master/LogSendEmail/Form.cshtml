@@ -1,0 +1,66 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@using MQUESTSYS.Util;
+@model LogSendEmailModel
+@{
+    var mode = (UIMode)ViewBag.Mode;
+
+    var formFields = new List<IFormField>()
+    {
+        Html.HiddenFieldFieldObjFor(p=>p.ID,""),
+       
+        
+        Html.LabelFieldObjFor(p=>p.Code,"Send Email Code", delegate(FormField f){
+                f.Style = "width:300px";
+        }),
+            
+        Html.TextBoxFieldObjFor(p=>p.SenderName,"Sender", delegate(FormField f){
+            f.Style = "width:400px";
+        }),
+            
+        Html.TextBoxFieldObjFor(p=>p.ToName,"To", delegate(FormField f){
+            f.Style = "width:400px";
+        }),
+        Html.TextBoxFieldObjFor(p=>p.CCName,"CC", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        Html.TextAreaFieldObjFor(p=>p.MessageEmail,"Message Email", delegate(FormField f){
+            f.Style = "width:250px";
+        }),
+        
+    };
+    var form = new Form();
+    form.Fields = formFields;
+}
+
+@Html.MasterForm(form, Model, mode, "LogSendEmail", "ID", delegate(MasterFormHelper<LogSendEmailModel> helper)
+{
+    if (mode == UIMode.Detail)
+    {
+        if (!Convert.ToBoolean(ViewBag.AllowCreate))
+        {
+            helper.CreateAnotherButton.Visible = false;
+        }
+
+        if (!Convert.ToBoolean(ViewBag.AllowEdit))
+        {
+            helper.EditButton.Visible = false;
+        }
+
+        helper.DeleteButton.Visible = false;
+    }
+})
+@*<script>
+    function checkEmail() {
+
+        var email = document.getElementById('txtEmail');
+        console.log(email);
+        var filter = /^([a-zA-Z0-9_\.\-])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email.value)) {
+            $("#txtEmail").val('');
+            alert('Email Not Valid');
+            return false;
+        }
+    }
+</script>*@

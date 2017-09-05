@@ -49,13 +49,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -64,9 +62,8 @@
     <Reference Include="MPL">
       <HintPath>..\MQUESTSYS.Util\DLL\MPL.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\NPOI.dll</HintPath>
+    <Reference Include="NPOI">
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,32 +79,35 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Helpers">
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\ABCAPOS\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor">
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.Razor.dll</HintPath>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.WebPages">
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>..\..\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\..\C#\ABCAPOS\ABCAPOS\bin\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebActivator">
-      <HintPath>..\packages\WebActivator.1.2.0.0\lib\NETFramework40\WebActivator.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Master\CustomerController.cs" />
+    <Compile Include="Controllers\Master\LogSendEmailController.cs" />
     <Compile Include="Controllers\PSIGenericTransactionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Master\UserProfileController.cs" />
@@ -477,6 +477,12 @@
     <Content Include="Views\Shared\Master\User\Form.cshtml" />
     <Content Include="Views\Shared\Master\User\IndexGrid.cshtml" />
     <Content Include="Views\List\UncreatedVocherExpense\Index.cshtml" />
+    <Content Include="Views\Master\LogSendEmail\Create.cshtml" />
+    <Content Include="Views\Master\LogSendEmail\Detail.cshtml" />
+    <Content Include="Views\Master\LogSendEmail\Index.cshtml" />
+    <Content Include="Views\Master\LogSendEmail\Update.cshtml" />
+    <Content Include="Views\Shared\Master\LogSendEmail\Form.cshtml" />
+    <Content Include="Views\Shared\Master\LogSendEmail\IndexGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

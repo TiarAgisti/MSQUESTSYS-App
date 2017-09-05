@@ -93,6 +93,10 @@
                             {
                                 <li><a href='@Url.Content("~/Customer")'><span>Customer</span></a></li>
                             }
+                            @if (menu.Contains("LogSendEmail"))
+                            {
+                                <li><a href='@Url.Content("~/LogSendEmail")'><span>Send Email</span></a></li>
+                            }
                         </ul>
                     </li>
                     }
@@ -110,44 +114,6 @@
                             }
                         </ul>
                     </li>
-                    }
-                    if (menu.Contains("Project") || menu.Contains("Invoice") || menu.Contains("InvoicePayment") || menu.Contains("Vocher") || menu.Contains("VocherExpense"))
-                    {
-                    <li class='has-sub'><a href='#'><span>Transaction</span></a>
-                        <ul>
-                            @if (menu.Contains("Project"))
-                            {
-                                <li><a href='@Url.Content("~/Project")'><span>Proyek</span></a></li>
-                            }
-                            @if (menu.Contains("Invoice"))
-                            {
-                                <li><a href='@Url.Content("~/Invoice")'><span>Invoice</span></a></li>
-                            }
-                            @if (menu.Contains("InvoicePayment"))
-                            {
-                                <li><a href='@Url.Content("~/InvoicePayment")'><span>Invoice Payment</span></a></li>
-                            }
-                            @if (menu.Contains("Vocher"))
-                            {
-                                <li><a href='@Url.Content("~/Vocher")'><span>Vocher</span></a></li>
-                            }
-                            @if (menu.Contains("VocherExpense"))
-                            {
-                                <li><a href='@Url.Content("~/VocherExpense")'><span>Vocher Expense</span></a></li>
-                            }
-                        </ul>
-                    </li>
-                    }
-                    if (menu.Contains("ReportProject"))
-                    {
-                        <li class='has-sub'><a href='#'><span>Laporan</span></a>
-                            <ul>
-                                @if (menu.Contains("ReportProject"))
-                                {
-                                    <li><a href='@Url.Content("~/ReportViewer/Index?type=Project")'><span>Laporan Proyek</span></a></li>
-                                }
-                            </ul>
-                        </li>
                     }
                 }
             </ul>

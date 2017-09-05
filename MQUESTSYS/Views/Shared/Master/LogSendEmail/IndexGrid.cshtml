@@ -1,0 +1,59 @@
+﻿@using MPL.MVC;
+@using MQUESTSYS.Models.Master;
+@model List<LogSendEmailModel>
+@{
+    var dataCount = (int)ViewBag.DataCount;
+    var pageSize = (int)ViewBag.PageSize;
+    var startIndex = (int)ViewBag.StartIndex;
+    var selectedPage = startIndex / pageSize + 1;
+    var pageAmount = (dataCount / 20);
+
+    if (dataCount % 20 != 0)
+    {
+        pageAmount += 1;
+    }
+
+    var statement = string.Format("Page: {0} of {1}", selectedPage, pageAmount);
+
+    var gridColumns = new List<GridColumn>()
+    {
+        Html.LabelColumn("Code","Send Email Code"),
+        Html.LabelColumn("SenderName","Sender","",delegate(GridColumn col){
+            col.Style = "width:400px";
+        }),
+        Html.LabelColumn("ToName","To","",delegate(GridColumn col){
+            col.Style = "width:400px";
+        }),
+        Html.LabelColumn("CCName","CC","",delegate(GridColumn col){
+            col.Style = "width:100px";
+        }),
+    };
+
+    var filterList = new List<GenericFilterField>()
+    {
+        Html.GenericFilterTextBoxField("Sender Email Code","Code"),
+        Html.GenericFilterTextBoxField("Sender","SenderName"),
+        Html.GenericFilterTextBoxField("To","ToName"),
+        Html.GenericFilterTextBoxField("CC","CCName"),
+    };
+
+    var grid = new Grid();
+    grid.Columns = gridColumns;
+}
+@Html.GenericFilter(filterList)
+@Html.IndexGrid(grid, Model, "LogSendEmail", "ID", "Code", null, delegate(object obj, UIMode mode)
+{
+    return false;
+}, delegate(IndexGridHelper helper)
+{
+    if (Convert.ToBoolean(ViewBag.AllowCreate))
+    {
+        helper.AddNewButton.Visible = true;
+    }
+    else
+    {
+        helper.AddNewButton.Visible = false;
+    }
+})
+<br />
+@statement
