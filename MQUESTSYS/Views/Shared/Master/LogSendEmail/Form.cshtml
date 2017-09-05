@@ -8,16 +8,20 @@
     var formFields = new List<IFormField>()
     {
         Html.HiddenFieldFieldObjFor(p=>p.ID,""),
-       
-        
+
+
         Html.LabelFieldObjFor(p=>p.Code,"Send Email Code", delegate(FormField f){
                 f.Style = "width:300px";
         }),
-            
+
+        Html.TextBoxFieldObjFor(p=>p.SubjectEmail,"Subject", delegate(FormField f){
+            f.Style = "width:400px";
+        }),
+
         Html.TextBoxFieldObjFor(p=>p.SenderName,"Sender", delegate(FormField f){
             f.Style = "width:400px";
         }),
-            
+
         Html.TextBoxFieldObjFor(p=>p.ToName,"To", delegate(FormField f){
             f.Style = "width:400px";
         }),
@@ -27,7 +31,7 @@
         Html.TextAreaFieldObjFor(p=>p.MessageEmail,"Message Email", delegate(FormField f){
             f.Style = "width:250px";
         }),
-        
+
     };
     var form = new Form();
     form.Fields = formFields;

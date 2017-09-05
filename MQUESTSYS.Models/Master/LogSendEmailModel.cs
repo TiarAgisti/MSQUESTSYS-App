@@ -10,6 +10,8 @@ namespace MQUESTSYS.Models.Master
     public class LogSendEmailModel:PSIHeaderModel
     {
         [Required]
+        public string SubjectEmail { get; set; }
+        [Required]
         public string SenderName { get; set; }
         [Required]
         public string ToName { get; set; }

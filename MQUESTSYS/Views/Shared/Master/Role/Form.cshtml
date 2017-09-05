@@ -118,6 +118,12 @@
                                     <input type="checkbox" id="@chkCreateID" name="@chkCreateID" value="true" @chkCreateChecked />@Html.Raw("Create")
                                 }
                             </td>
+                            <td style="width: 150px">
+                                @if (obj.Key != "CompanySetting" && obj.Key != "PrefixSetting")
+                                {
+                                    <input type="checkbox" id="@chkEditID" name="@chkEditID" value="true" @chkEditChecked />@Html.Raw("Edit")
+                                }
+                            </td>
                         </tr>
                     }
                 </table>

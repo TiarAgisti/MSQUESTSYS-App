@@ -5843,6 +5843,30 @@ namespace MQUESTSYS.EDM
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String SubjectEmail
+        {
+            get
+            {
+                return _SubjectEmail;
+            }
+            set
+            {
+                OnSubjectEmailChanging(value);
+                ReportPropertyChanging("SubjectEmail");
+                _SubjectEmail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SubjectEmail");
+                OnSubjectEmailChanged();
+            }
+        }
+        private global::System.String _SubjectEmail;
+        partial void OnSubjectEmailChanging(global::System.String value);
+        partial void OnSubjectEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String SenderName
         {
             get
@@ -8142,6 +8166,30 @@ namespace MQUESTSYS.EDM
         private global::System.String _Code;
         partial void OnCodeChanging(global::System.String value);
         partial void OnCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubjectEmail
+        {
+            get
+            {
+                return _SubjectEmail;
+            }
+            set
+            {
+                OnSubjectEmailChanging(value);
+                ReportPropertyChanging("SubjectEmail");
+                _SubjectEmail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SubjectEmail");
+                OnSubjectEmailChanged();
+            }
+        }
+        private global::System.String _SubjectEmail;
+        partial void OnSubjectEmailChanging(global::System.String value);
+        partial void OnSubjectEmailChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
